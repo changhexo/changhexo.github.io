@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>xtrabackup | 凡事定有美意</title>
+  <meta name="author" content="jhchang" />
+
+  
+  <meta name="description" content="安装:123$ yum install http://www.percona.com/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm$ yum list | grep percona$ yum insta" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="xtrabackup" />
+  <meta property="og:site_name" content="凡事定有美意" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="凡事定有美意" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <!--
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+  -->
+  <script type="text/javascript" src="js/mymouse.js" id="mymouse"></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">凡事定有美意</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-06-10T09:24:42.000Z"><a href="/2018/06/10/xtrabackup/">2018-06-10</a></time>
+      
+      
+  
+    <h1 class="title">xtrabackup</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h4 id="安装"><a href="#安装" class="headerlink" title="安装:"></a>安装:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ yum install http://www.percona.com/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm</span><br><span class="line">$ yum list | grep percona</span><br><span class="line">$ yum install percona-xtrabackup-24</span><br></pre></td></tr></table></figure>
+<h4 id="创建备份用户"><a href="#创建备份用户" class="headerlink" title="创建备份用户:"></a>创建备份用户:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE USER <span class="string">'bkpuser'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'passwd'</span>;</span><br><span class="line">mysql&gt; GRANT RELOAD, LOCK TABLES, PROCESS, REPLICATION CLIENT ON *.* TO <span class="string">'bkpuser'</span>@<span class="string">'localhost'</span>;</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<h4 id="简单操作"><a href="#简单操作" class="headerlink" title="简单操作:"></a>简单操作:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建存放目录</span></span><br><span class="line">$ mkdir -pv /data/bkp</span><br><span class="line"><span class="comment"># 创建完全备份</span></span><br><span class="line">$ xtrabackup --defaults-file=/etc/my.cnf \   <span class="comment"># 指定数据库配置文件</span></span><br><span class="line">--backup</span><br><span class="line">--user=bkpuser \                             <span class="comment"># 指定之前创建的备份用户</span></span><br><span class="line">--password=passwd \                          <span class="comment"># 用户密码</span></span><br><span class="line">--target-dir=/data/bkp                       <span class="comment"># 指定备份存放目录</span></span><br><span class="line"></span><br><span class="line">$ innobackupex  --defaults-file=/etc/my.cnf \</span><br><span class="line">--user=bkpuser \</span><br><span class="line">--password=passwd /data1/bkp</span><br></pre></td></tr></table></figure>
+<p>两种备份的区别：<br>[root@localhost ~]# ls /data1/bkp/<br>2018-06-10_13-40-01<br>[root@localhost ~]# ls /data/bkp/<br>backup-my.cnf  ib_buffer_pool  mysql               sys                     xtrabackup_checkpoints  xtrabackup_logfile<br>db1            ibdata1         performance_schema  xtrabackup_binlog_info  xtrabackup_info</p>
+<p><em>在备份时可以看到整个备份过程:</em></p>
+<ul>
+<li>连接数据库</li>
+<li>开始拷贝redo log</li>
+<li>拷贝innodb表文件</li>
+<li>锁表、拷贝非innodb表文件</li>
+<li>停止拷贝redo log</li>
+<li>解锁</li>
+</ul>
+<p><em>安装 xtrabackup 提示 /etc/my.cnf 冲突解决办法:</em></p>
+<h6 id="这里是-mysql-5-7-的版本，其它没有测试"><a href="#这里是-mysql-5-7-的版本，其它没有测试" class="headerlink" title="这里是 mysql 5.7 的版本，其它没有测试"></a>这里是 mysql 5.7 的版本，其它没有测试</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-community-libs-compat</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/data/">data</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:1118.tk">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/09/04/python_re/"></a>
+      </li>
+    
+      <li>
+        <a href="/2018/08/04/python_cloudflare/">python_cloudflare</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/10/note/">note</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/10/xtrabackup/">xtrabackup</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/10/proxysql/">proxysql</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/data/">data</a><small>2</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>1</small></li>
+  
+    <li><a href="/tags/安全/">安全</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag Cloud</h3>
+  <div class="entry">
+    <a href="/tags/data/" style="font-size: 20px;">data</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 jhchang
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>

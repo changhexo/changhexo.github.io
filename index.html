@@ -1,0 +1,701 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>凡事定有美意</title>
+  <meta name="author" content="jhchang" />
+
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  
+  <meta property="og:site_name" content="凡事定有美意" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="凡事定有美意" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <!--
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+  -->
+  <script type="text/javascript" src="js/mymouse.js" id="mymouse"></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">凡事定有美意</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-09-04T04:30:58.796Z"><a href="/2018/09/04/python_re/">2018-09-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/09/04/python_re/"></a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="python-re"><a href="#python-re" class="headerlink" title="python     re"></a>python     re</h2><h5 id="常用正则表达式符号和特殊字符"><a href="#常用正则表达式符号和特殊字符" class="headerlink" title="常用正则表达式符号和特殊字符"></a>常用正则表达式符号和特殊字符</h5><table>
+<thead>
+<tr>
+<th>记号</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>literra1</td>
+<td>匹配字符串的值</td>
+<td>foo</td>
+</tr>
+<tr>
+<td>re1 \</td>
+<td>re2</td>
+<td>匹配正则表达式 re1 或者 re2</td>
+<td>foo \</td>
+<td>bar</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配任何字符（换行符除外）</td>
+<td>b.b</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配字符串的开始</td>
+<td>^Dear</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配字符串的结尾</td>
+<td>/bin/*sh$</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配前面出现的正则表达式零次 或者 多次</td>
+<td>[A-Za-z0-9]*</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配前面出现的正则表达式一次 或者 多次</td>
+<td>[a-z]+.com</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配前面出现的正则表达式零次 或者 一次</td>
+<td>goo?</td>
+</tr>
+<tr>
+<td>{N}</td>
+<td>匹配前面出现的正则表达式 N 次</td>
+<td>[0-9]{3}</td>
+</tr>
+<tr>
+<td>{M,N}</td>
+<td>匹配重复出现 M 次到 N 次</td>
+<td>[0-9]{5,9}</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td>匹配字符给里出现的任意一个字符</td>
+<td>[aeiou]</td>
+</tr>
+<tr>
+<td>[..x-y..]</td>
+<td>匹配字符 x 到 y 中的任意一个字符</td>
+<td>[0-9], [A-za-z]</td>
+</tr>
+<tr>
+<td>[^…]</td>
+<td>不匹配此字符集中出现的任何一个字符，包括某一范围的字符，^ 在这里是取反</td>
+<td>[^aeiou], [ ^A-Za-z0-9_]</td>
+</tr>
+<tr>
+<td>(*\</td>
+<td>+\</td>
+<td>?\</td>
+<td>{})?</td>
+<td>用于上面出现的任何“非贪婪”  版本重复匹配次数符号（*, +, ?, {}）</td>
+<td>.*?[a-z]</td>
+</tr>
+<tr>
+<td>(…)</td>
+<td>匹配封闭括号中正则式（RE），并保存为子组</td>
+<td>([0-9]{3})?, f(oo\</td>
+<td>u)bar</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配任何数字，和 [0-9] 一样 （\D 是 \d 的反义，任何非数字字符）</td>
+<td>data\d+.txt</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配任何数字字母字符，和 [A-Za-z0-9_] 相同 （\W 是 \w 的反义）</td>
+<td>[A-Za-z_]\w+</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任何空白字符，和 [\n\t\r\v\f] 相同 （\S 是 \s 的反义）</td>
+<td>of\sthe</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配单词边界（\B 是 \b 的反义）</td>
+<td>\bThe\b</td>
+</tr>
+<tr>
+<td>\nn</td>
+<td>匹配已保存的子组（请参考上面的正则表达式符号：(…) ）</td>
+<td>price: \16</td>
+</tr>
+<tr>
+<td>\c</td>
+<td>逐一匹配特殊字符 c （即，取消它的特殊含义，按字面匹配）</td>
+<td>\.     \\     \*</td>
+</tr>
+<tr>
+<td>\A (\Z)</td>
+<td>匹配字符串的起始</td>
+<td>\ADear</td>
+</tr>
+</tbody>
+</table>
+<h5 id="特殊字符表示字符集"><a href="#特殊字符表示字符集" class="headerlink" title="特殊字符表示字符集"></a>特殊字符表示字符集</h5><table>
+<thead>
+<tr>
+<th>正则表达式模式</th>
+<th>匹配的字符串</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\w+-\d+</td>
+<td>一个由字母或数字组成的字符串，和至少一个数字，两部分中间由连 字符连接</td>
+</tr>
+<tr>
+<td>[A-Za-z]\w*</td>
+<td>第一个字符是字母，其余字符(如果存在的话)，是字母或数字(它几乎 等价于 Python 语言中合法的标识符</td>
+</tr>
+<tr>
+<td>\d{3}-\d{3}-\d{4}</td>
+<td>(美国)电话号码，前面带区号前缀，例如 800-555-1212</td>
+</tr>
+<tr>
+<td>\w+@\w+\.com</td>
+<td>简单的 <a href="mailto:XXX@YYY.com" target="_blank" rel="noopener">XXX@YYY.com</a> 格式的电子邮件地址</td>
+</tr>
+</tbody>
+</table>
+<h5 id="用圆括号-组建组"><a href="#用圆括号-组建组" class="headerlink" title="用圆括号 () 组建组"></a>用圆括号 () 组建组</h5><p>正则表达式中 () 的作用：</p>
+<ul>
+<li><p>对正则表达式分组</p>
+</li>
+<li><p>匹配子组</p>
+<p>例如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\d+(\.\d*)?    # 表示简单浮点数</span><br><span class="line">(Mr?s?\.)?[A-Z][a-z]*[A-Za-z-]+    # 名字和姓氏</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="常见的正则表达式函数与方法"><a href="#常见的正则表达式函数与方法" class="headerlink" title="常见的正则表达式函数与方法"></a>常见的正则表达式函数与方法</h5><table>
+<thead>
+<tr>
+<th>函数 / 方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compile(pattern, flags=0)</td>
+<td>对正则表达式pattern进行编译，flags是可选标志符，并返回一个regex对象</td>
+</tr>
+<tr>
+<td>match(pattern, string, flags=0)</td>
+<td>尝试用正则表达式模式pattern匹配字符串string，flags是可选标志符，如匹配成功，则返回一个匹配对象，否则返回 None</td>
+</tr>
+<tr>
+<td>search(pattern, string, flags=0)</td>
+<td>在字符串string中查找正则表达式模式pattern的第一次出现，flags是可选标志符，如匹配成功，则返回一个匹配对象，否则返回 None</td>
+</tr>
+<tr>
+<td>findall(pattern, string[,flags])</td>
+<td>在字符串string中查找正则表达式模式pattern的所有（非重复）出现；返回一个匹配对象的列表</td>
+</tr>
+<tr>
+<td>finditer(pattern, string[,flags])</td>
+<td>和findall相同，但返回的不是一个列表而是迭代器；对于每个匹配，该迭代器返回一个匹配对象</td>
+</tr>
+<tr>
+<td>split(pattern, string, max=0)</td>
+<td>根据正则表达式pattern中的分隔符把字符string分割为一个列表，返回成功匹配的列表，最多分割max次（默认是分割所有匹配的地方）</td>
+</tr>
+<tr>
+<td>sub(pattern, repl, string, max=0)</td>
+<td>把字符串string中所有匹配正则表达式pattern的地方替换成字符串repl，如果max的值没有给出，则对所有匹配的地方进行替换（另外，参考 subn() ，它还会返回一个表示替换次数的数值）</td>
+</tr>
+<tr>
+<td>group(num=0)</td>
+<td>返回全部匹配对象（或指定编号是num的子组）</td>
+</tr>
+<tr>
+<td>groups()</td>
+<td>返回一个包含全部匹配的子组的元组（如果没有成功匹配，则返回一个空元组）</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-08-04T07:15:45.000Z"><a href="/2018/08/04/python_cloudflare/">2018-08-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/08/04/python_cloudflare/">python_cloudflare</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="string">"""Cloudflare API code - example"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">sys.path.insert(<span class="number">0</span>, os.path.abspath(<span class="string">'..'</span>))</span><br><span class="line"><span class="keyword">import</span> CloudFlare</span><br><span class="line"></span><br><span class="line"><span class="comment"># def my_ip_address():</span></span><br><span class="line"><span class="comment">#     """Cloudflare API code - example"""</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#     # This list is adjustable - plus some v6 enabled services are needed</span></span><br><span class="line"><span class="comment">#     # url = 'http://myip.dnsomatic.com'</span></span><br><span class="line"><span class="comment">#     # url = 'http://www.trackip.net/ip'</span></span><br><span class="line"><span class="comment">#     # url = 'http://myexternalip.com/raw'</span></span><br><span class="line"><span class="comment">#     url = 'https://api.ipify.org'</span></span><br><span class="line"><span class="comment">#     try:</span></span><br><span class="line"><span class="comment">#         ip_address = requests.get(url).text</span></span><br><span class="line"><span class="comment">#     except:</span></span><br><span class="line"><span class="comment">#         print('%s: failed' % (url))</span></span><br><span class="line"><span class="comment">#     if ip_address == '':</span></span><br><span class="line"><span class="comment">#         print('%s: failed' % (url))</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#     if ':' in ip_address:</span></span><br><span class="line"><span class="comment">#         ip_address_type = 'AAAA'</span></span><br><span class="line"><span class="comment">#     else:</span></span><br><span class="line"><span class="comment">#         ip_address_type = 'A'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#     return ip_address, ip_address_type</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">do_dns_update</span><span class="params">(cf, zone_name, zone_id, dns_name, ip_address, ip_address_type)</span>:</span></span><br><span class="line">    <span class="string">"""Cloudflare API code - example"""</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        params = &#123;<span class="string">'name'</span>:dns_name, <span class="string">'match'</span>:<span class="string">'all'</span>, <span class="string">'type'</span>:ip_address_type&#125;</span><br><span class="line">        dns_records = cf.zones.dns_records.get(zone_id, params=params)</span><br><span class="line">    <span class="keyword">except</span> CloudFlare.exceptions.CloudFlareAPIError <span class="keyword">as</span> e:</span><br><span class="line">        print(<span class="string">'/zones/dns_records %s - %d %s - api call failed'</span> % (dns_name, e, e))</span><br><span class="line"></span><br><span class="line">    updated = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># update the record - unless it's already correct</span></span><br><span class="line">    <span class="keyword">for</span> dns_record <span class="keyword">in</span> dns_records:</span><br><span class="line">        old_ip_address = dns_record[<span class="string">'content'</span>]</span><br><span class="line">        old_ip_address_type = dns_record[<span class="string">'type'</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ip_address_type <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">'A'</span>, <span class="string">'AAAA'</span>]:</span><br><span class="line">            <span class="comment"># we only deal with A / AAAA records</span></span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ip_address_type != old_ip_address_type:</span><br><span class="line">            <span class="comment"># only update the correct address type (A or AAAA)</span></span><br><span class="line">            <span class="comment"># we don't see this becuase of the search params above</span></span><br><span class="line">            print(<span class="string">'IGNORED: %s %s ; wrong address family'</span> % (dns_name, old_ip_address))</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ip_address == old_ip_address:</span><br><span class="line">            print(<span class="string">'UNCHANGED: %s %s'</span> % (dns_name, ip_address))</span><br><span class="line">            updated = <span class="keyword">True</span></span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># Yes, we need to update this record - we know it's the same address type</span></span><br><span class="line"></span><br><span class="line">        dns_record_id = dns_record[<span class="string">'id'</span>]</span><br><span class="line">        dns_record = &#123;</span><br><span class="line">            <span class="string">'name'</span>:dns_name,</span><br><span class="line">            <span class="string">'type'</span>:ip_address_type,</span><br><span class="line">            <span class="string">'content'</span>:ip_address,</span><br><span class="line">            <span class="string">'proxied'</span>:<span class="keyword">True</span>,</span><br><span class="line">            <span class="string">'ttl'</span>:<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            dns_record = cf.zones.dns_records.put(zone_id, dns_record_id, data=dns_record)</span><br><span class="line">        <span class="keyword">except</span> CloudFlare.exceptions.CloudFlareAPIError <span class="keyword">as</span> e:</span><br><span class="line">            print(<span class="string">'/zones.dns_records.put %s - %d %s - api call failed'</span> % (dns_name, e, e))</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        print(<span class="string">'UPDATED: %s %s -&gt; %s'</span> % (dns_name, old_ip_address, ip_address))</span><br><span class="line">        updated = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> updated:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># no exsiting dns record to update - so create dns record</span></span><br><span class="line">    dns_record = &#123;</span><br><span class="line">        <span class="string">'name'</span>:dns_name,</span><br><span class="line">        <span class="string">'type'</span>:ip_address_type,</span><br><span class="line">        <span class="string">'content'</span>:ip_address</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        dns_record = cf.zones.dns_records.post(zone_id, data=dns_record)</span><br><span class="line">    <span class="keyword">except</span> CloudFlare.exceptions.CloudFlareAPIError <span class="keyword">as</span> e:</span><br><span class="line">        print(<span class="string">'/zones.dns_records.post %s - %d %s - api call failed'</span> % (dns_name, e, e))</span><br><span class="line">    print(<span class="string">'CREATED: %s %s'</span> % (dns_name, ip_address))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""Cloudflare API code - example"""</span></span><br><span class="line">    cf = CloudFlare.CloudFlare()</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'./domains.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> dns_name <span class="keyword">in</span> f:</span><br><span class="line"></span><br><span class="line">            host_name = <span class="string">"www."</span></span><br><span class="line">            dns_name_www = host_name + dns_name</span><br><span class="line">            zone_name = dns_name</span><br><span class="line">            <span class="comment">#ip_address, ip_address_type = my_ip_address()</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># set ip address</span></span><br><span class="line">            ip_address = <span class="string">"your_dns_ip"</span></span><br><span class="line">            ip_address_type = <span class="string">"A"</span></span><br><span class="line">            </span><br><span class="line">            print(<span class="string">'MY IP: %s %s'</span> % (dns_name, ip_address))</span><br><span class="line"></span><br><span class="line">            <span class="comment"># grab the zone identifier</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                params = &#123;<span class="string">'name'</span>:zone_name&#125;</span><br><span class="line">                zones = cf.zones.get(params=params)</span><br><span class="line">            <span class="keyword">except</span> CloudFlare.exceptions.CloudFlareAPIError <span class="keyword">as</span> e:</span><br><span class="line">                print(<span class="string">'/zones %d %s - api call failed'</span> % (e, e))</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                print(<span class="string">'/zones.get - %s - api call failed'</span> % (e))</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> len(zones) == <span class="number">0</span>:</span><br><span class="line">                print(<span class="string">'/zones.get - %s - zone not found'</span> % (zone_name))</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> len(zones) != <span class="number">1</span>:</span><br><span class="line">                print(<span class="string">'/zones.get - %s - api call returned %d items'</span> % (zone_name, len(zones)))</span><br><span class="line"></span><br><span class="line">            zone = zones[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">            zone_name = zone[<span class="string">'name'</span>]</span><br><span class="line">            zone_id = zone[<span class="string">'id'</span>]</span><br><span class="line"></span><br><span class="line">            do_dns_update(cf, zone_name, zone_id, dns_name, ip_address, ip_address_type)</span><br><span class="line">            do_dns_update(cf, zone_name, zone_id, dns_name_www, ip_address, ip_address_type)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/python/">python</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-06-10T11:40:10.000Z"><a href="/2018/06/10/note/">2018-06-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/06/10/note/">note</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h4 id="免密登陆"><a href="#免密登陆" class="headerlink" title="免密登陆"></a>免密登陆</h4><hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br><span class="line"><span class="comment"># 三次回车</span></span><br><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;远程主机IP&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装:"></a>Hexo 安装:</h4><hr>
+<ul>
+<li><p>安装 Node.js</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.github.com/creationix/nvm/master/install.sh | sh</span><br><span class="line">nvm install stable</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 git</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 Hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">nmp install hexo -g     <span class="comment"># 全局安装，npm默认为当前项目安装</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo-server --save</span><br><span class="line">hexo init &lt;directory&gt; <span class="comment"># 执行 Hexo 初始化</span></span><br><span class="line"><span class="built_in">cd</span> &lt;directory&gt;</span><br><span class="line">npm install</span><br><span class="line">hexo generate          <span class="comment">#自动根据当前目录下文件,生成静态网页,可简写：hexo g</span></span><br><span class="line">hexo server            <span class="comment"># 启动 Hexo，简写：hexo s [-i &lt;ip&gt;] [-p &lt;port&gt;]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Hexo 的一些操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;port&gt; proj1</span><br><span class="line">hexo new draft proj2</span><br><span class="line">hexo new page proj3</span><br><span class="line">hexo clean            <span class="comment"># 清空生成的文档</span></span><br><span class="line">hexo g                <span class="comment"># 生成文档</span></span><br><span class="line">hexo g d              <span class="comment"># 生成文档并发布到 github (前提是配置了 github )</span></span><br><span class="line"><span class="comment"># hexo 并没有重启/关闭的操作</span></span><br><span class="line">pgrep hexo            <span class="comment"># 查询 hexo 进程号</span></span><br><span class="line"><span class="built_in">kill</span> -9 `pgrep hexo`   <span class="comment"># 关闭 hexo</span></span><br><span class="line">hexo s -p 80&amp;         <span class="comment"># 以 80 端口后台启动 hexo</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对应关系</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 布局  | 路径           |</span><br><span class="line">| ----- | -------------- |</span><br><span class="line">| post  | <span class="built_in">source</span>/_posts  |</span><br><span class="line">| page  | <span class="built_in">source</span>         |</span><br><span class="line">| draft | <span class="built_in">source</span>/_drafts |</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-06-10T09:24:42.000Z"><a href="/2018/06/10/xtrabackup/">2018-06-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/06/10/xtrabackup/">xtrabackup</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h4 id="安装"><a href="#安装" class="headerlink" title="安装:"></a>安装:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ yum install http://www.percona.com/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm</span><br><span class="line">$ yum list | grep percona</span><br><span class="line">$ yum install percona-xtrabackup-24</span><br></pre></td></tr></table></figure>
+<h4 id="创建备份用户"><a href="#创建备份用户" class="headerlink" title="创建备份用户:"></a>创建备份用户:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE USER <span class="string">'bkpuser'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'passwd'</span>;</span><br><span class="line">mysql&gt; GRANT RELOAD, LOCK TABLES, PROCESS, REPLICATION CLIENT ON *.* TO <span class="string">'bkpuser'</span>@<span class="string">'localhost'</span>;</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<h4 id="简单操作"><a href="#简单操作" class="headerlink" title="简单操作:"></a>简单操作:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建存放目录</span></span><br><span class="line">$ mkdir -pv /data/bkp</span><br><span class="line"><span class="comment"># 创建完全备份</span></span><br><span class="line">$ xtrabackup --defaults-file=/etc/my.cnf \   <span class="comment"># 指定数据库配置文件</span></span><br><span class="line">--backup</span><br><span class="line">--user=bkpuser \                             <span class="comment"># 指定之前创建的备份用户</span></span><br><span class="line">--password=passwd \                          <span class="comment"># 用户密码</span></span><br><span class="line">--target-dir=/data/bkp                       <span class="comment"># 指定备份存放目录</span></span><br><span class="line"></span><br><span class="line">$ innobackupex  --defaults-file=/etc/my.cnf \</span><br><span class="line">--user=bkpuser \</span><br><span class="line">--password=passwd /data1/bkp</span><br></pre></td></tr></table></figure>
+<p>两种备份的区别：<br>[root@localhost ~]# ls /data1/bkp/<br>2018-06-10_13-40-01<br>[root@localhost ~]# ls /data/bkp/<br>backup-my.cnf  ib_buffer_pool  mysql               sys                     xtrabackup_checkpoints  xtrabackup_logfile<br>db1            ibdata1         performance_schema  xtrabackup_binlog_info  xtrabackup_info</p>
+<p><em>在备份时可以看到整个备份过程:</em></p>
+<ul>
+<li>连接数据库</li>
+<li>开始拷贝redo log</li>
+<li>拷贝innodb表文件</li>
+<li>锁表、拷贝非innodb表文件</li>
+<li>停止拷贝redo log</li>
+<li>解锁</li>
+</ul>
+<p><em>安装 xtrabackup 提示 /etc/my.cnf 冲突解决办法:</em></p>
+<h6 id="这里是-mysql-5-7-的版本，其它没有测试"><a href="#这里是-mysql-5-7-的版本，其它没有测试" class="headerlink" title="这里是 mysql 5.7 的版本，其它没有测试"></a>这里是 mysql 5.7 的版本，其它没有测试</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-community-libs-compat</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/data/">data</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-06-10T09:20:39.000Z"><a href="/2018/06/10/proxysql/">2018-06-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/06/10/proxysql/">proxysql</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="repo"><a href="#repo" class="headerlink" title="repo:"></a>repo:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ vim proxysql.repo</span><br><span class="line">[proxysql_repo]</span><br><span class="line">name= ProxySQL YUM repository</span><br><span class="line">baseurl=http://repo.proxysql.com/ProxySQL/proxysql-1.4.x/centos/\<span class="variable">$releasever</span></span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://repo.proxysql.com/ProxySQL/repo_pub_key</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/data/">data</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-06-08T07:32:45.000Z"><a href="/2018/06/08/fail2ban/">2018-06-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/06/08/fail2ban/">fail2ban</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h5 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ yum install epel-release</span><br><span class="line">$ yum install fail2ban</span><br></pre></td></tr></table></figure>
+<h5 id="配置："><a href="#配置：" class="headerlink" title="配置："></a>配置：</h5><p>新建配置文件，默认是没有的，也可以定义nginx-cc防护<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/fail2ban/jail.d/sshd.local</span><br><span class="line">[sshd]</span><br><span class="line">enabled = <span class="literal">true</span>					<span class="comment"># 是否启用</span></span><br><span class="line">filter = sshd					<span class="comment"># 过滤表</span></span><br><span class="line">findtime = 120					<span class="comment"># 统计时间范围，单位：秒</span></span><br><span class="line">bantime = 120					<span class="comment"># 封锁时间，单位：秒</span></span><br><span class="line">maxretry = 3					<span class="comment"># 最大错误次数</span></span><br><span class="line">banaction = iptables-allports</span><br></pre></td></tr></table></figure></p>
+<p>fail2ban 白名单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/fail2ban/jail.conf</span><br><span class="line"># 多个 ip 以空格或者逗号分隔</span><br><span class="line">ignoreip = 127.0.0.1/8</span><br></pre></td></tr></table></figure></p>
+<p>解开被封锁的 ip :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fail2ban-client set sshd unbanip 8.8.8.8</span><br></pre></td></tr></table></figure></p>
+<h5 id="运行状态："><a href="#运行状态：" class="headerlink" title="运行状态："></a>运行状态：</h5><p><img src="images/fail2ban.png" alt=""></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/安全/">安全</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-06-07T11:32:45.000Z"><a href="/2018/06/07/hello-world/">2018-06-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/06/07/hello-world/">Hello World</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+<nav id="pagination">
+  
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:1118.tk">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/09/04/python_re/"></a>
+      </li>
+    
+      <li>
+        <a href="/2018/08/04/python_cloudflare/">python_cloudflare</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/10/note/">note</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/10/xtrabackup/">xtrabackup</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/10/proxysql/">proxysql</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/data/">data</a><small>2</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>1</small></li>
+  
+    <li><a href="/tags/安全/">安全</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag Cloud</h3>
+  <div class="entry">
+    <a href="/tags/data/" style="font-size: 20px;">data</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 jhchang
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>
