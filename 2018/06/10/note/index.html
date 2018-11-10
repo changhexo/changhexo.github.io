@@ -98,7 +98,7 @@ Hexo 安装:
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;port&gt; proj1</span><br><span class="line">hexo new draft proj2</span><br><span class="line">hexo new page proj3</span><br><span class="line">hexo clean            <span class="comment"># 清空生成的文档</span></span><br><span class="line">hexo g                <span class="comment"># 生成文档</span></span><br><span class="line">hexo g d              <span class="comment"># 生成文档并发布到 github (前提是配置了 github )</span></span><br><span class="line"><span class="comment"># hexo 并没有重启/关闭的操作</span></span><br><span class="line">pgrep hexo            <span class="comment"># 查询 hexo 进程号</span></span><br><span class="line"><span class="built_in">kill</span> -9 `pgrep hexo`   <span class="comment"># 关闭 hexo</span></span><br><span class="line">hexo s -p 80&amp;         <span class="comment"># 以 80 端口后台启动 hexo</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>对应关系</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 布局  | 路径           |</span><br><span class="line">| ----- | -------------- |</span><br><span class="line">| post  | <span class="built_in">source</span>/_posts  |</span><br><span class="line">| page  | <span class="built_in">source</span>         |</span><br><span class="line">| draft | <span class="built_in">source</span>/_drafts |</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 布局       | 路径           |</span><br><span class="line">| post       | <span class="built_in">source</span>/_posts  |</span><br><span class="line">| page       | <span class="built_in">source</span>         |</span><br><span class="line">| draft      | <span class="built_in">source</span>/_drafts |</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -137,11 +137,15 @@ Hexo 安装:
   <ul class="entry">
     
       <li>
-        <a href="/2018/09/04/python_re/"></a>
+        <a href="/2018/09/11/shell_thread/">shell_thead</a>
       </li>
     
       <li>
         <a href="/2018/08/04/python_cloudflare/">python_cloudflare</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/10/python_re/">python re</a>
       </li>
     
       <li>
@@ -150,10 +154,6 @@ Hexo 安装:
     
       <li>
         <a href="/2018/06/10/xtrabackup/">xtrabackup</a>
-      </li>
-    
-      <li>
-        <a href="/2018/06/10/proxysql/">proxysql</a>
       </li>
     
   </ul>
@@ -167,7 +167,9 @@ Hexo 安装:
   
     <li><a href="/tags/data/">data</a><small>2</small></li>
   
-    <li><a href="/tags/python/">python</a><small>1</small></li>
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/shell/">shell</a><small>1</small></li>
   
     <li><a href="/tags/安全/">安全</a><small>1</small></li>
   
@@ -179,7 +181,7 @@ Hexo 安装:
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/data/" style="font-size: 20px;">data</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a>
+    <a href="/tags/data/" style="font-size: 20px;">data</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a>
   </div>
 </div>
 

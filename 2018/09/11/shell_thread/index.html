@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>shell_thead | 凡事定有美意</title>
+  <meta name="author" content="jhchang" />
+
+  
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738#!/bin/bashTHREAD=10             # 声明并发线程并发个数，这个是此应用的关键，也就是设置管道的最大任务数TMPFIFO=/tmp/$" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="shell_thead" />
+  <meta property="og:site_name" content="凡事定有美意" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="凡事定有美意" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <!--
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+  -->
+  <script type="text/javascript" src="js/mymouse.js" id="mymouse"></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">凡事定有美意</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-09-11T05:48:59.000Z"><a href="/2018/09/11/shell_thread/">2018-09-11</a></time>
+      
+      
+  
+    <h1 class="title">shell_thead</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">THREAD=10             <span class="comment"># 声明并发线程并发个数，这个是此应用的关键，也就是设置管道的最大任务数</span></span><br><span class="line">TMPFIFO=/tmp/$$.fifo  <span class="comment"># 声明管道名称，'$$'表示脚本当前运行的进程PID</span></span><br><span class="line">mkfifo <span class="variable">$TMPFIFO</span>       <span class="comment"># 创建管道</span></span><br><span class="line"><span class="built_in">exec</span> 5&lt;&gt;<span class="variable">$&#123;TMPFIFO&#125;</span></span><br><span class="line"><span class="comment"># 创建文件标示符“5”，这个数字可以为除“0”、“1”、“2”之外的所有未声明过的字符，</span></span><br><span class="line"><span class="comment"># 以读写模式操作管道文件；系统调用exec是以新的进程去代替原来的进程，</span></span><br><span class="line"><span class="comment"># 但进程的PID保持不变，换句话说就是在调用进程内部执行一个可执行文件</span></span><br><span class="line"></span><br><span class="line">rm -rf <span class="variable">$&#123;TMPFIFO&#125;</span>     <span class="comment"># 清除创建的管道文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#为并发线程创建同样个数的占位</span></span><br><span class="line"><span class="keyword">for</span>((i=1;i&lt;=<span class="variable">$THREAD</span>;i++))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">   <span class="built_in">echo</span> &gt;&amp;5              </span><br><span class="line"><span class="keyword">done</span>                 </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(seq 100)</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">read</span> -u5  </span><br><span class="line"><span class="comment"># 借用read命令一次读取一行的特性，使用一个echo默认输出一个换行符，</span></span><br><span class="line"><span class="comment"># 来确保每一行只有一个线程占位；这里让人联想到生产者&amp;消费者模型，</span></span><br><span class="line"><span class="comment"># 管道文件充当消息队列，来记录消费者的需求，然后由生产者去领任务，</span></span><br><span class="line"><span class="comment"># 并完成任务，这里运用了异步解耦的思想。</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">echo</span> <span class="variable">$i</span></span><br><span class="line">        sleep 1</span><br><span class="line">        <span class="built_in">echo</span> &gt;&amp;5</span><br><span class="line"><span class="comment"># 任务执行完后在fd5中写入一个占位符，以保证这个线程执行完后，</span></span><br><span class="line"><span class="comment"># 线程继续保持占位，继而维持管道中永远是50个线程数，</span></span><br><span class="line"><span class="comment"># &amp;表示该部分命令/任务放入后台不占当前的bash，实现并行处理</span></span><br><span class="line">        &#125; &amp;</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">wait</span>                   <span class="comment"># 等待父进程的子进程都执行结束后再结束父进程</span></span><br><span class="line"><span class="built_in">exec</span> 5&gt;&amp;-</span><br><span class="line"><span class="built_in">exec</span> 5&lt;&amp;-              <span class="comment"># 关闭fd5的管道</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/shell/">shell</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:1118.tk">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/09/11/shell_thread/">shell_thead</a>
+      </li>
+    
+      <li>
+        <a href="/2018/08/04/python_cloudflare/">python_cloudflare</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/10/python_re/">python re</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/10/note/">note</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/10/xtrabackup/">xtrabackup</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/data/">data</a><small>2</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/shell/">shell</a><small>1</small></li>
+  
+    <li><a href="/tags/安全/">安全</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag Cloud</h3>
+  <div class="entry">
+    <a href="/tags/data/" style="font-size: 20px;">data</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 jhchang
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>
